@@ -6,45 +6,29 @@
 /*   By: tcarrero <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/29 19:54:42 by tcarrero       #+#    #+#                */
-/*   Updated: 2026/06/29 20:11:46 by tcarrero       ########   odam.nl        */
+/*   Updated: 2026/07/01 17:24:41 by tcarrero       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int	diff;
-	int	sum_s1;
-	int	sum_s2;
-	int	i;
-
-	i = 0;
-	sum_s1 = 0;
-	sum_s2 = 0;
-	diff = 0;
-	while (s1[i] != '\0')
+	while (*s1 == *s2 && *s1 != '\0')
 	{
-		sum_s1 += s1[i];
-		i++;
+		s1++;
+		s2++;
 	}
-	i = 0;
-	while (s2[i] != '\0')
-	{
-		sum_s2 += s2[i];
-		i++;
-	}
-	diff = sum_s1 - sum_s2;
-	return (diff);
+	return (*s1 - *s2);
 }
-/*
+
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	char	s1[] = "ABC";
-	char	s2[] = "ABD";
+	char	s1[] = "ABCD";
+	char	s2[] = "AB";
 
-	printf("s1 = %s s2 = %s %d\n", s1, s2, ft_strcmp(s1, s2));
-	printf("s1 = %s s2 = %s %d\n", s1, s2, ft_strcmp(s2, s1));
-	printf("s1 = %s s2 = %s %d\n", s1, s1, ft_strcmp(s1, s1));
+	printf("s1 = %s s2 = %s cmp = %d\n", s2, s1, ft_strcmp(s2, s1));
+	printf("Real strcmp s1 = %s s2 = %s cmp = %d\n", s2, s1, strcmp(s2, s1));
 }
-*/
+

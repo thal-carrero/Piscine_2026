@@ -6,62 +6,33 @@
 /*   By: tcarrero <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/06/30 18:55:39 by tcarrero       #+#    #+#                */
-/*   Updated: 2026/06/30 21:36:18 by tcarrero       ########   odam.nl        */
+/*   Updated: 2026/07/01 14:17:58 by tcarrero       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_cmp(char a, char b)
-{
-	if (a == b)
-		return (1);
-	return (0);
-}
-
-char	*ft_temp_str(char *str, int index)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		str[i] = str[index];
-		i++;
-		index++;
-	}
-	return (str);
-}
-
 char	*ft_strstr(char *str, char *to_find)
 {
-	int	i;
-	int	j;
-	int	cmp;
+	char	*find;
+	char	*temp;
+	char	*og;
 
-	i = 0;
-	j = 0;
-	cmp = 0;
-	while (str[i] != '\0')
+	og = str;
+	while (*og != '\0')
 	{
-		while (to_find[j] != '\0')
+		find = to_find;
+		temp = og;
+		while (*temp == *find && *find != '\0')
 		{
-			cmp = ft_cmp(str[i], to_find[j]);
-			printf("str[%d] = %c to_find[%d] = %c cmp = %d\n", i, str[i], j, to_find[j], cmp);
-			if (cmp)
-			{
-				i++;
-				j++;
-			}
-			else 
-				break;
+			temp++;
+			find++;
 		}
-		i++;
+		if (*find == '\0')
+			return (og);
+		og++;
 	}
-	ft_temp_str(str, i);
-	return (str);
+	return ("");
 }
-
+/*
 #include <stdio.h>
 
 int	main()
@@ -72,3 +43,4 @@ int	main()
 	printf("str = %s  to_find = %s\n", str, to_find);
 	printf("%s\n", ft_strstr(str, to_find));
 }
+*/
