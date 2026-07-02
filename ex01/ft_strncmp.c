@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                         ::::::::           */
-/*   ft_strncmp.c                                        :+:    :+:           */
-/*                                                      +:+                   */
-/*   By: tcarrero <marvin@42.fr>                       +#+                    */
-/*                                                    +#+                     */
-/*   Created: 2026/06/29 20:13:07 by tcarrero       #+#    #+#                */
-/*   Updated: 2026/07/01 16:32:18 by tcarrero       ########   odam.nl        */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thalia <thalia@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/29 20:13:07 by tcarrero          #+#    #+#             */
+/*   Updated: 2026/07/02 03:27:13 by thalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (*s1 != '\0' && *s2 != '\0' && i < n)
+	while (*s1 == *s2 && *s1 != '\0' && i < n - 1)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
 		s1++;
 		s2++;
 		i++;
 	}
-	return (0);
+	return (*s1 - *s2);
 }
 
 #include <stdio.h>

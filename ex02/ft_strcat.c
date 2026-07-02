@@ -1,52 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                         ::::::::           */
-/*   ft_strcat.c                                         :+:    :+:           */
-/*                                                      +:+                   */
-/*   By: tcarrero <marvin@42.fr>                       +#+                    */
-/*                                                    +#+                     */
-/*   Created: 2026/06/29 20:27:00 by tcarrero       #+#    #+#                */
-/*   Updated: 2026/06/29 20:44:25 by tcarrero       ########   odam.nl        */
+/*                                                        :::      ::::::::   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thalia <thalia@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/29 20:27:00 by tcarrero          #+#    #+#             */
+/*   Updated: 2026/07/02 03:17:33 by thalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i++);
-}
-
 char	*ft_strcat(char *dest, char*src)
 {
-	int	i;
-	int	len;
-
-	i = 0;
-	len = ft_strlen(dest);
-	while (src[i] != '\0')
+	char	*new_dest;
+	
+	new_dest = dest;
+	while (*dest != '\0')
+		dest++;
+	while (*src != '\0')
 	{
-		dest[len] = src[i];
-		i++;
-		len++;
+		*dest = *src;
+		dest++;
+		src++;
 	}
-	dest[len] = '\0';
-	return (dest);
+	*dest = '\0';
+	return (new_dest);
 }
-/*
-#include <stdio.h>
 
-int	main(void)
-{
-	char	src[] = "Mundo!";
-	char	dest[] = "Hola";
+// #include <stdio.h>
 
-	printf("src = %s dest = %s\n", src, dest);
-	printf("%s\n", ft_strcat(dest, src));
-}
-*/
+// int	main(void)
+// {
+// 	char	src[] = " Mundo!";
+// 	char	dest[] = "Hola";
+
+// 	printf("src = %s dest = %s\n", src, dest);
+// 	printf("%s\n", ft_strcat(dest, src));
+// }
+
