@@ -1,5 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/thalia/Piscine_2026/ex01/ft_strncmp'
-relocations:     []
-...
