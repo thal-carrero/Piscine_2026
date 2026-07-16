@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   ft_print_comb.c                                     :+:    :+:           */
+/*   ft_strncpy.c                                        :+:    :+:           */
 /*                                                      +:+                   */
 /*   By: tcarrero <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
-/*   Created: 2026/06/24 15:05:58 by tcarrero       #+#    #+#                */
-/*   Updated: 2026/06/25 15:48:22 by tcarrero       ########   odam.nl        */
+/*   Created: 2026/06/27 15:49:34 by tcarrero       #+#    #+#                */
+/*   Updated: 2026/06/28 11:52:03 by tcarrero       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	write_num(char arr[])
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	write(1, arr, 3);
-	if (!(arr[0] == '7' && arr[1] == '8' && arr[2] == '9'))
-	{
-		write(1, ", ", 2);
-	}
-}
+	unsigned int	i;
 
-void	ft_print_comb(void)
+	i = 0;
+	while (i < n && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
+}
+/*
+#include <stdio.h>
+
+int	main(void)
 {
-	char	arr[3];
+	char	dest[] = "hola1";
+	char	src[] = "adios";
 
-	arr[0] = '0';
-	while (arr[0] <= '7')
-	{
-		arr[1] = arr[0] + 1;
-		while (arr[1] <= '8')
-		{
-			arr[2] = arr[1] + 1;
-			while (arr[2] <= '9')
-			{
-				write_num(arr);
-				arr[2]++;
-			}
-			arr[1]++;
-		}
-		arr[0]++;
-	}
+	printf("dest: %s  src: %s\n", dest, src);
+	ft_strncpy(dest, src, 7);
+	printf("dest: %s  src: %s\n", dest, src);
+
 }
+*/

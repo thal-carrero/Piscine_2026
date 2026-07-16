@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   ft_print_comb.c                                     :+:    :+:           */
+/*   ft_strlowcase.c                                     :+:    :+:           */
 /*                                                      +:+                   */
 /*   By: tcarrero <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
-/*   Created: 2026/06/24 15:05:58 by tcarrero       #+#    #+#                */
-/*   Updated: 2026/06/25 15:48:22 by tcarrero       ########   odam.nl        */
+/*   Created: 2026/06/27 17:33:14 by tcarrero       #+#    #+#                */
+/*   Updated: 2026/06/28 15:07:09 by tcarrero       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	write_num(char arr[])
+char	*ft_strlowcase(char *str)
 {
-	write(1, arr, 3);
-	if (!(arr[0] == '7' && arr[1] == '8' && arr[2] == '9'))
-	{
-		write(1, ", ", 2);
-	}
-}
+	int		i;
+	char	*str_low;
 
-void	ft_print_comb(void)
-{
-	char	arr[3];
-
-	arr[0] = '0';
-	while (arr[0] <= '7')
+	i = 0;
+	str_low = str;
+	while (str[i] != '\0')
 	{
-		arr[1] = arr[0] + 1;
-		while (arr[1] <= '8')
+		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
-			arr[2] = arr[1] + 1;
-			while (arr[2] <= '9')
-			{
-				write_num(arr);
-				arr[2]++;
-			}
-			arr[1]++;
+			str_low[i] = str[i] + 32;
 		}
-		arr[0]++;
+		else
+		{
+			str_low[i] = str[i];
+		}
+		i++;
 	}
+	return (str_low);
 }

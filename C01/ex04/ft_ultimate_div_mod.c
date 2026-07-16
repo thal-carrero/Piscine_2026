@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   ft_print_comb.c                                     :+:    :+:           */
+/*   ft_ultimate_div_mod.c                               :+:    :+:           */
 /*                                                      +:+                   */
 /*   By: tcarrero <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
-/*   Created: 2026/06/24 15:05:58 by tcarrero       #+#    #+#                */
-/*   Updated: 2026/06/25 15:48:22 by tcarrero       ########   odam.nl        */
+/*   Created: 2026/06/25 16:49:30 by tcarrero       #+#    #+#                */
+/*   Updated: 2026/06/26 11:43:21 by tcarrero       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	write_num(char arr[])
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	write(1, arr, 3);
-	if (!(arr[0] == '7' && arr[1] == '8' && arr[2] == '9'))
-	{
-		write(1, ", ", 2);
-	}
-}
+	int	div;
+	int	mod;
 
-void	ft_print_comb(void)
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
+}
+/*
+#include <stdio.h>
+
+int	main(void)
 {
-	char	arr[3];
+	int	a = 20;
+	int	b = 10;
 
-	arr[0] = '0';
-	while (arr[0] <= '7')
-	{
-		arr[1] = arr[0] + 1;
-		while (arr[1] <= '8')
-		{
-			arr[2] = arr[1] + 1;
-			while (arr[2] <= '9')
-			{
-				write_num(arr);
-				arr[2]++;
-			}
-			arr[1]++;
-		}
-		arr[0]++;
-	}
+	printf("a = %d b = %d\n", a, b); 
+	ft_ultimate_div_mod(&a, &b);
+	printf("a = %d b = %d", a, b);
 }
+*/

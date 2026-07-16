@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   ft_print_comb.c                                     :+:    :+:           */
+/*   ft_strlen.c                                         :+:    :+:           */
 /*                                                      +:+                   */
 /*   By: tcarrero <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
-/*   Created: 2026/06/24 15:05:58 by tcarrero       #+#    #+#                */
-/*   Updated: 2026/06/25 15:48:22 by tcarrero       ########   odam.nl        */
+/*   Created: 2026/06/25 17:10:16 by tcarrero       #+#    #+#                */
+/*   Updated: 2026/06/26 11:56:17 by tcarrero       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	write_num(char arr[])
+int	ft_strlen(char *str)
 {
-	write(1, arr, 3);
-	if (!(arr[0] == '7' && arr[1] == '8' && arr[2] == '9'))
-	{
-		write(1, ", ", 2);
-	}
-}
+	int	i;
 
-void	ft_print_comb(void)
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i++);
+}
+/*
+#include <stdio.h>
+
+int	main()
 {
-	char	arr[3];
+	char*	str;
 
-	arr[0] = '0';
-	while (arr[0] <= '7')
-	{
-		arr[1] = arr[0] + 1;
-		while (arr[1] <= '8')
-		{
-			arr[2] = arr[1] + 1;
-			while (arr[2] <= '9')
-			{
-				write_num(arr);
-				arr[2]++;
-			}
-			arr[1]++;
-		}
-		arr[0]++;
-	}
+	str = "Thalia";
+	printf("%d", ft_strlen(str));
 }
+*/

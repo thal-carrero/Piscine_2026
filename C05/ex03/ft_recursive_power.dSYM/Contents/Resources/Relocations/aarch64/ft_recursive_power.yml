@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/thalia/Piscine_2026/C05/ex03/ft_recursive_power'
+relocations:     []
+...

@@ -1,44 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   ft_print_comb.c                                     :+:    :+:           */
+/*   ft_is_negative.c                                    :+:    :+:           */
 /*                                                      +:+                   */
 /*   By: tcarrero <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
-/*   Created: 2026/06/24 15:05:58 by tcarrero       #+#    #+#                */
-/*   Updated: 2026/06/25 15:48:22 by tcarrero       ########   odam.nl        */
+/*   Created: 2026/06/24 12:00:43 by tcarrero       #+#    #+#                */
+/*   Updated: 2026/06/24 15:04:05 by tcarrero       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	write_num(char arr[])
+void	ft_is_negative(int n)
 {
-	write(1, arr, 3);
-	if (!(arr[0] == '7' && arr[1] == '8' && arr[2] == '9'))
+	if (n >= 0)
 	{
-		write(1, ", ", 2);
+		write(1, "P", 1);
 	}
-}
-
-void	ft_print_comb(void)
-{
-	char	arr[3];
-
-	arr[0] = '0';
-	while (arr[0] <= '7')
+	else
 	{
-		arr[1] = arr[0] + 1;
-		while (arr[1] <= '8')
-		{
-			arr[2] = arr[1] + 1;
-			while (arr[2] <= '9')
-			{
-				write_num(arr);
-				arr[2]++;
-			}
-			arr[1]++;
-		}
-		arr[0]++;
+		write(1, "N", 1);
 	}
 }
